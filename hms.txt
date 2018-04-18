@@ -3,12 +3,14 @@ CREATE TABLE doctor (
   dr_name varchar(255)  NOT NULL ,
   contact varchar(255) DEFAULT NULL,
   degree varchar(255) DEFAULT NULL,
-  fees int(11) DEFAULT NULL,
   mail_id varchar(255) DEFAULT NULL,
-  timings varchar(255) DEFAULT NULL,
-  PRIMARY KEY (dr_id)
+  timings enum('12am-12pm',12pm-12am') DEFAULT NULL,
+  PRIMARY KEY (dr_id),
+  UNIQUE KEY dr_name (dr_name )
 ) 
 
+insert into doctor values(1,'hari','7353434907','B E','shri@gmail.com','12am-12pm');
+insert into doctor values(1,'pavan','8367434907','B E','hari@gmail.com','12pm-12am');
 
 CREATE TABLE ipdpatient (
   ipd_no int(11) NOT NULL AUTO_INCREMENT,
@@ -41,6 +43,9 @@ CREATE TABLE patient (
   fees int DEFAULT NULL,
   PRIMARY KEY (pat_id)
 )
+
+insert into patient (pat_id,pat_name,age,father_name,gender,address,contact,mail_id  )values('1','abc',23,'xyz','Male','bgk','233214','hari@gamil.com');
+
 
 
 CREATE TABLE room (
