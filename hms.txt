@@ -1,0 +1,62 @@
+CREATE TABLE doctor (
+  dr_id int(11) NOT NULL AUTO_INCREMENT,
+  dr_name varchar(255) DEFAULT NULL,
+  contact varchar(255) DEFAULT NULL,
+  degree varchar(255) DEFAULT NULL,
+  fees int(11) DEFAULT NULL,
+  mail_id varchar(255) DEFAULT NULL,
+  timings varchar(255) DEFAULT NULL,
+  PRIMARY KEY (dr_id)
+) 
+
+
+CREATE TABLE ipdpatient (
+  ipd_no int(11) NOT NULL AUTO_INCREMENT,
+  pat_id int(11) DEFAULT NULL,
+  doa varchar(255) DEFAULT NULL,
+  dod varchar(255) DEFAULT NULL,
+  room_number int(11) DEFAULT NULL,
+  procharges int(11) DEFAULT NULL,
+  drcharges int(11) DEFAULT NULL,
+  medcharges int(11) DEFAULT NULL,
+  othercharges int(11) DEFAULT NULL,
+  total int(11) DEFAULT NULL,
+  adpay int(11) DEFAULT NULL,  
+  PRIMARY KEY (ipd_no),
+  KEY pat_id (pat_id),
+  CONSTRAINT ipdpatient_ibfk_1 FOREIGN KEY (pat_id) REFERENCES patient (pat_id)
+)
+
+
+
+CREATE TABLE patient (
+  pat_id int(11) NOT NULL AUTO_INCREMENT,
+  pat_name varchar(255) DEFAULT NULL,
+  age int(11) DEFAULT NULL,
+  father_name varchar(255) DEFAULT NULL,
+  gender enum('Male','Female') DEFAULT NULL,
+  address varchar(255) DEFAULT NULL,
+  contact varchar(255) DEFAULT NULL,
+  mail_id varchar(255) DEFAULT NULL,
+  PRIMARY KEY (pat_id)
+)
+
+
+CREATE TABLE room (
+  room_id int(11) NOT NULL AUTO_INCREMENT,
+  room_number int(11) DEFAULT NULL,
+  room_category varchar(255) DEFAULT NULL,
+  room_count int(11) DEFAULT NULL,
+  room_description varchar(255) DEFAULT NULL,
+  room_charges int(11) DEFAULT NULL,
+  PRIMARY KEY (room_id),
+  UNIQUE KEY room_number (room_number)
+)
+
+CREATE TABLE roomcat (
+  roomcat_id int(11) NOT NULL AUTO_INCREMENT,
+  roomcat_name varchar(255) DEFAULT NULL,
+  room_count int(11) DEFAULT NULL,
+  room_charge int(11) DEFAULT NULL,
+  PRIMARY KEY (`roomcat_id`)
+) 
