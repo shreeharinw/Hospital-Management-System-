@@ -5,8 +5,7 @@ CREATE TABLE doctor (
   degree varchar(255) DEFAULT NULL,
   mail_id varchar(255) DEFAULT NULL,
   timings varchar(255) DEFAULT NULL,
-  PRIMARY KEY (dr_id),
-  UNIQUE KEY dr_name (dr_name )
+  PRIMARY KEY (dr_id)
 ) 
 
 
