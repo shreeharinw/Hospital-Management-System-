@@ -3,6 +3,7 @@ CREATE TABLE doctor (
   dr_name varchar(255)  NOT NULL ,
   contact varchar(255) DEFAULT NULL,
   degree varchar(255) DEFAULT NULL,
+  fees int(11) DEFAULT NULL
   mail_id varchar(255) DEFAULT NULL,
   timings varchar(255) DEFAULT NULL,
   PRIMARY KEY (dr_id)
