@@ -1,12 +1,12 @@
 CREATE TABLE doctor (
   dr_id int(11) NOT NULL AUTO_INCREMENT,
-  dr_name varchar(255) DEFAULT NULL,
+  dr_name varchar(255)  NOT NULL ,
   contact varchar(255) DEFAULT NULL,
   degree varchar(255) DEFAULT NULL,
-  fees int(11) DEFAULT NULL,
   mail_id varchar(255) DEFAULT NULL,
   timings varchar(255) DEFAULT NULL,
-  PRIMARY KEY (dr_id)
+  PRIMARY KEY (dr_id),
+  UNIQUE KEY dr_name (dr_name )
 ) 
 
 
@@ -38,6 +38,7 @@ CREATE TABLE patient (
   address varchar(255) DEFAULT NULL,
   contact varchar(255) DEFAULT NULL,
   mail_id varchar(255) DEFAULT NULL,
+  fees int DEFAULT NULL,
   PRIMARY KEY (pat_id)
 )
 
@@ -46,17 +47,19 @@ CREATE TABLE room (
   room_id int(11) NOT NULL AUTO_INCREMENT,
   room_number int(11) DEFAULT NULL,
   room_category varchar(255) DEFAULT NULL,
-  room_count int(11) DEFAULT NULL,
-  room_description varchar(255) DEFAULT NULL,
   room_charges int(11) DEFAULT NULL,
   PRIMARY KEY (room_id),
   UNIQUE KEY room_number (room_number)
 )
 
-CREATE TABLE roomcat (
-  roomcat_id int(11) NOT NULL AUTO_INCREMENT,
-  roomcat_name varchar(255) DEFAULT NULL,
-  room_count int(11) DEFAULT NULL,
-  room_charge int(11) DEFAULT NULL,
-  PRIMARY KEY (`roomcat_id`)
-) 
+
+insert into room values(1,101,"delux",500);
+insert into room values(1,102,"delux",500);
+
+
+CREATE TABLE users (
+  user_id varchar(255) NOT NULL,
+  password varchar(255) DEFAULT NULL,
+  usertype enum('admin','doctor','operator') DEFAULT NULL,
+  PRIMARY KEY (user_id)
+)
